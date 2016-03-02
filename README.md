@@ -1,4 +1,6 @@
 # assignment-8
+
+This assingment plots data about irises (the flower). You will be able to choose what species you would like to view as well as change from petal to sepal lengths nad widths. 
 ##Submission
 
 #URL 
