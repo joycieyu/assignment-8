@@ -3,14 +3,13 @@ library(plotly)
 library(dplyr)
 
 shinyServer(function(input, output) {
-  #data <- iris
 
   output$plot <- renderPlotly({
     x <- list(
-      title = "Sepal length"
+      title = "Width"
     )
     y <- list(
-      title = "Petal Length"
+      title = "Length"
     )
     
     if (input$radio == 'versicolor') {
@@ -22,15 +21,15 @@ shinyServer(function(input, output) {
     }
     
     if (input$select == 1) {
-      length <- select(data, contains(Sepal.Length))
-      width <- select(data, contains(Sepal.Width))
+      length <- select(data, contains("Sepal.Length"))
+      width <- select(data, contains("Sepal.Width"))
     } else {
-      length <- select(data, contains(Petal.Length))
-      width <- select(data, contains(Petal.Width))
+      length <- select(data, contains("Petal.Length"))
+      width <- select(data, contains("Petal.Width"))
     }
-    plot_ly(data = data, x = width[,1], y = length[,1], mode = "markers",
+    plot_ly(data = data, x = width[ ,1], y = length[ ,1], mode = "markers",
                  color = Species) %>% 
         layout(xaxis=x, yaxis=y)
-    output$value <- renderPrint({ input$slider1 })
+  
   })
-})
+  })

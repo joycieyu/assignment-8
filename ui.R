@@ -13,11 +13,10 @@ shinyUI(fluidPage(
 
     selectInput("select", label = h3("Select Petal or Sepal"), 
                 choices = list("Sepal" = 1, "Petal" = 2), 
-                selected = 1),
-
+                selected = 1)
+),
   mainPanel(
     
     plotlyOutput("plot")
  )
-  )  
 ))
